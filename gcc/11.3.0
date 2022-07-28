@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/gcc-11.3.0_install
+
+conflict        gcc
+
+prepend-path    CPATH               ${prefix}/include
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib:${prefix}/lib64
+prepend-path    LIBRARY_PATH        ${prefix}/lib:${prefix}/lib64
+prepend-path    PATH                ${prefix}/bin

@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive
+
+conflict        cudnn
+
+prepend-path    CPATH               ${prefix}/include
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+prepend-path    LIBRARY_PATH        ${prefix}/lib

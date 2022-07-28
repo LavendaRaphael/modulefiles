@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir             $::env(homedir)
+set     prefix              ${homedir}
+
+setenv  SCREENDIR           ${prefix}/.local/.screen
+setenv  VIMINIT             "source ${prefix}/codes/common/vimrc.vim"
+setenv  vasp_pot            ${prefix}/software/vasp_potpaw_PBE.54
+setenv  ESPRESSO_PSEUDO     ${prefix}/software/qe_pseudo
+
+prepend-path    CPATH               ${prefix}/.local/include
+prepend-path    PATH                ${prefix}/.local/bin
+prepend-path    LIBRARY_PATH        ${prefix}/.local/lib:${prefix}/.local/lib64
+prepend-path    LD_LIBRARY_PATH     ${prefix}/.local/lib:${prefix}/.local/lib64
+prepend-path    PKG_CONFIG_PATH     ${prefix}/.local/lib/pkgconfig
