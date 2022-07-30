@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/plumed-2.8.0_install
+
+conflict        plumed
+
+setenv          PLUMED_KERNEL       ${prefix}/lib/libplumedKernel.so
+setenv          PLUMED_VIMPATH      ${prefix}/lib/plumed/vim
+
+prepend-path    CPATH               ${prefix}/include
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+prepend-path    LIBRARY_PATH        ${prefix}/lib
+prepend-path    PATH                ${prefix}/bin
+prepend-path    PKG_CONFIG_PATH     ${prefix}/lib/pkgconfig
+prepend-path    PYTHONPATH          ${prefix}/lib/plumed/python
+

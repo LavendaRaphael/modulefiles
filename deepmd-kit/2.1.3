@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/deepmd-kit-2.1.3_install
+
+conflict        deepmd-kit
+
+prepend-path    CPATH               ${prefix}/include
+prepend-path    LAMMPS_PLUGIN_PATH  ${prefix}/lib/deepmd_lmp
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+prepend-path    LIBRARY_PATH        ${prefix}/lib
+prepend-path    PATH                ${prefix}/bin
+
