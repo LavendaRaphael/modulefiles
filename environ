@@ -21,7 +21,7 @@ setenv  VIMINIT             "source ${prefix}/codes/common/vimrc.vim"
 setenv  vasp_pot            ${prefix}/software/vasp_potpaw_PBE.54
 setenv  ESPRESSO_PSEUDO     ${prefix}/software/qe_pseudo
 
-set-alias   	cdl     "cd \${1};ll -a"
+set-function    cdl                 "cd \${1};ll -a"
 
 prepend-path    CPATH               ${prefix}/.local/include
 prepend-path    PATH                ${prefix}/.local/bin
