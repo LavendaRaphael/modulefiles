@@ -18,8 +18,10 @@ set     prefix          ${homedir}/software/plumed-2.8.0_install
 
 conflict        plumed
 
-setenv          PLUMED_KERNEL       ${prefix}/lib/libplumedKernel.so
-setenv          PLUMED_VIMPATH      ${prefix}/lib/plumed/vim
+module  load    lapack/3.10.1
+
+setenv  PLUMED_KERNEL       ${prefix}/lib/libplumedKernel.so
+setenv  PLUMED_VIMPATH      ${prefix}/lib/plumed/vim
 
 prepend-path    CPATH               ${prefix}/include
 prepend-path    LD_LIBRARY_PATH     ${prefix}/lib

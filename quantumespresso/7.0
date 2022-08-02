@@ -1,0 +1,23 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/q-e-qe-7.0_install
+
+conflict        quantumespresso
+
+module  load    libxc/5.2.3
+
+setenv  ESPRESSO_PSEUDO     ${prefix}/software/qe_pseudo
+
+prepend-path    PATH                ${prefix}/bin

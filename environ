@@ -19,7 +19,6 @@ set     prefix              ${homedir}
 setenv  SCREENDIR           ${prefix}/.local/.screen
 setenv  VIMINIT             "source ${prefix}/codes/common/vimrc.vim"
 setenv  vasp_pot            ${prefix}/software/vasp_potpaw_PBE.54
-setenv  ESPRESSO_PSEUDO     ${prefix}/software/qe_pseudo
 
 set-function    cdl                 "cd \${1};ll -a"
 
