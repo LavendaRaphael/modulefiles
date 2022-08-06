@@ -18,6 +18,6 @@ conflict        quantumespresso
 
 module  load    libxc/5.2.3
 
-setenv  ESPRESSO_PSEUDO     ${prefix}/software/qe_pseudo
+setenv  ESPRESSO_PSEUDO     ${homedir}/software/qe_pseudo
 
 prepend-path    PATH                ${prefix}/bin
