@@ -18,7 +18,7 @@ set     prefix          ${homedir}/software/lammps-stable_23Jun2022_install
 
 conflict        lammps
 
-module  load    cuda/11.7
+module  load    cuda/11.7_x
 module  load    cudnn/8.4.1
 
 prepend-path    CPATH               ${prefix}/include
