@@ -1,0 +1,22 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/cuda-11.7
+
+conflict        libcuda
+
+prepend-path    LD_LIBRARY_PATH     ${prefix}/libcuda
+prepend-path    LIBRARY_PATH        ${prefix}/libcuda
