@@ -1,32 +1,72 @@
-#%Module1.0#####################################################################
-##
-## modules modulefile
-##
-## modulefiles/modules.  Generated from modules.in by configure.
-##
-proc ModulesHelp { } {
-                global prefix
+#%Module1.0##############################################
 
-                puts stderr ""
-}
-
-module-whatis   ""
-
-# for Tcl script use only
+# Manually add here dependencies and conflicts
 set     homedir         $::env(homedir)
-set     prefix          ${homedir}/software/plumed-2.8.0_install
-
 conflict        plumed
-
 module  load    lapack/3.10.1
 
-setenv  PLUMED_KERNEL       ${prefix}/lib/libplumedKernel.so
-setenv  PLUMED_VIMPATH      ${prefix}/lib/plumed/vim
+# this is the path for libraries
+set libdir "${homedir}/software/plumed-2.8.0_install/lib"
+# this is the path for binaries
+set bindir "${homedir}/software/plumed-2.8.0_install/bin"
+# this is the path for include files
+set includedir "${homedir}/software/plumed-2.8.0_install/include"
+# this is the extension for dynamic libraries
+# if set to empty, switches off plumed library
+set soext  "so"
+# this is the name of the plumed program
+# it is usually plumed
+set progname "plumed"
+# if yes, soname is absolute - does not require setting (DY)LD_LIBRARY_PATH
+# otherwise, soname is relative - requires require setting (DY)LD_LIBRARY_PATH (common in Linux)
+set use_absolute_soname "no"
 
-prepend-path    CPATH               ${prefix}/include
-prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
-prepend-path    LIBRARY_PATH        ${prefix}/lib
-prepend-path    PATH                ${prefix}/bin
-prepend-path    PKG_CONFIG_PATH     ${prefix}/lib/pkgconfig
-prepend-path    PYTHONPATH          ${prefix}/lib/plumed/python
+# everything past this line should not need any editing
 
+proc ModulesHelp { } {
+  puts stderr "Adds paths for Plumed"
+}
+
+module-whatis   "Adds paths for Plumed"
+
+# execution path
+prepend-path  PATH               $bindir
+
+# include path
+prepend-path  CPATH              $includedir
+prepend-path  INCLUDE            $includedir
+
+# library path, can also be useful when soext is not defined in order to link lib$progname.a
+prepend-path  LIBRARY_PATH       $libdir
+
+# path for VIM syntax
+setenv        PLUMED_VIMPATH     $libdir/$progname/vim
+
+# path for pkgconfig
+prepend-path  PKG_CONFIG_PATH    $libdir/pkgconfig/
+
+# some paths are only set if plumed is compiled as a dynamic library
+if { [ string length $soext ]  != 0 } {
+
+# this is checking if PLUMED_KERNEL is already set
+if { [module-info mode load] && [ info exists ::env(PLUMED_KERNEL) ] } {
+    puts stderr "WARNING: PLUMED_KERNEL variable was already set, you are now overriding it"
+    puts stderr " (typically means that you are loading two plumed modules, both defining dynamic libraries)"
+}
+
+# if we use a relative soname (as it is common in Linux) then the (DY)LD_LIBRARY_PATH should be set.
+if { $use_absolute_soname != "yes" } {
+  if { $soext == "dylib"  } {
+    prepend-path  DYLD_LIBRARY_PATH    $libdir
+  } else {
+    prepend-path  LD_LIBRARY_PATH    $libdir
+  }
+}
+
+# python path
+prepend-path  PYTHONPATH         $libdir/$progname/python
+
+# plumed kernel
+setenv        PLUMED_KERNEL      $libdir/lib${progname}Kernel.$soext
+
+}
