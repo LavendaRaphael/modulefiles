@@ -14,18 +14,10 @@ module-whatis   ""
 
 # for Tcl script use only
 set     homedir         $::env(homedir)
-set     prefix          ${homedir}/software/deepmd-kit-2.1.3_install
+set     prefix          ${homedir}/intel/oneapi/intelpython/python3.9
 
-conflict        deepmd-kit
+conflict        intelpython
 
-module  load    environ
-module  load    cuda/11.7
-module  load    cudnn/8.4.1
-module  load    gcc/11.3.0
-
-prepend-path    CPATH               ${prefix}/include
-prepend-path    LAMMPS_PLUGIN_PATH  ${prefix}/lib/deepmd_lmp
 prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
 prepend-path    LIBRARY_PATH        ${prefix}/lib
-prepend-path    PATH                ${prefix}/bin
 

@@ -10,7 +10,6 @@ module-whatis   ""
 
 # for Tcl script use only
 set     homedir         $::env(homedir)
-set     prefix          ${homedir}/software/gcc-11.3.0_install
 set     dir             202203_MDCarbonicAcid
 
 setenv  dir_mdca_code   ${homedir}/codes/research/${dir}
