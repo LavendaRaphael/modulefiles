@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          /public/spst/home/puww/apps/qe-car_group_mirror
+
+conflict        quantumespresso
+
+module load mathlib/fftw/3.3.8/7/sharelib
+module load compiler/intel/intel-compiler-2017.5.239
+module load mpi/intelmpi/2017.4.239
+
+setenv  ESPRESSO_PSEUDO     ${homedir}/software/qe_pseudo
+
+prepend-path    PATH                ${prefix}/bin
