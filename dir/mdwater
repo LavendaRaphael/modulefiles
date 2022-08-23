@@ -1,0 +1,19 @@
+#%Module########################################################################
+##
+## null modulefile
+##
+proc ModulesHelp { } {
+    puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     dir             202203_MDWater
+
+setenv  dir_mdwater_code   ${homedir}/codes/research/${dir}
+setenv  dir_mdwater_work   ${homedir}/research/${dir}
+setenv  dir_mdwater_shtu   ${homedir}/research_shtu/${dir}
+setenv  dir_mdwater_d      ${homedir}/research_d/${dir}
+setenv  dir_mdwater_ms     ${homedir}/research/${dir}/structure/H2CO3_Files/Documents
