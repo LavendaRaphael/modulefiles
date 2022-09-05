@@ -22,6 +22,9 @@ setenv  vasp_pot            ${prefix}/software/vasp_potpaw_PBE.54
 
 set-function    cdl                 "cd \${1};ll -a"
 
+set-alias       rmi                 "rm -Iv"
+set-alias       cpi                 "cp -i"
+
 prepend-path    CPATH               ${prefix}/.local/include
 prepend-path    PATH                ${prefix}/.local/bin
 prepend-path    LIBRARY_PATH        ${prefix}/.local/lib:${prefix}/.local/lib64
