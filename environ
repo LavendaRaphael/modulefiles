@@ -18,7 +18,6 @@ set     prefix              ${homedir}
 
 setenv  SCREENDIR           ${prefix}/.local/.screen
 setenv  VIMINIT             "source ${prefix}/codes/common/vimrc.vim"
-setenv  vasp_pot            ${prefix}/software/vasp_potpaw_PBE.54
 
 set-function    cdl                 "cd \${1};ll -a"
 
@@ -27,6 +26,5 @@ set-alias       cpi                 "cp -i"
 
 prepend-path    CPATH               ${prefix}/.local/include
 prepend-path    PATH                ${prefix}/.local/bin
-prepend-path    LIBRARY_PATH        ${prefix}/.local/lib:${prefix}/.local/lib64
-prepend-path    LD_LIBRARY_PATH     ${prefix}/.local/lib:${prefix}/.local/lib64
-prepend-path    PKG_CONFIG_PATH     ${prefix}/.local/lib/pkgconfig
+prepend-path    LIBRARY_PATH        ${prefix}/.local/lib
+prepend-path    LD_LIBRARY_PATH     ${prefix}/.local/lib

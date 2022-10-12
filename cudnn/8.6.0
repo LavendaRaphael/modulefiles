@@ -14,7 +14,7 @@ module-whatis   ""
 
 # for Tcl script use only
 set     homedir         $::env(homedir)
-set     prefix          ${homedir}/software/cudnn-linux-x86_64-8.4.1.50_cuda11.6-archive
+set     prefix          ${homedir}/software/cudnn-linux-x86_64-8.6.0.163_cuda11-archive
 
 conflict        cudnn
 
