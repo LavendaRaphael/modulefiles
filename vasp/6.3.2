@@ -1,0 +1,25 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     prefix          ${homedir}/software/vasp.6.3.2_install
+
+conflict        vasp
+
+module  load        gcc/11.3.0
+
+setenv  ASE_VASP_COMMAND    "mpirun vasp_std"
+setenv  VASP_PP_PATH        ${homedir}/software/vasp_pot
+setenv  ASE_VASP_VDW        ${homedir}/software/vasp_pot
+
+prepend-path    PATH                ${prefix}/bin
