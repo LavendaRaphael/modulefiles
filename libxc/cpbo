@@ -12,12 +12,13 @@ module-whatis   ""
 
 # for Tcl script use only
 set     homedir         $::env(homedir)
-set     prefix          ${homedir}/software/q-e-qe-cpbo_install
+set     prefix          ${homedir}/software/libxc-cpbo_install
 
-conflict        quantumespresso
+conflict        libxc
 
-module load gcc/11.3.0
-
-setenv  ESPRESSO_PSEUDO     ${homedir}/software/qe_pseudo
-
+prepend-path    CPATH               ${prefix}/include
+prepend-path    LD_LIBRARY_PATH     ${prefix}/lib
+prepend-path    LIBRARY_PATH        ${prefix}/lib
 prepend-path    PATH                ${prefix}/bin
+prepend-path    PKG_CONFIG_PATH     ${prefix}/lib/pkgconfig
+

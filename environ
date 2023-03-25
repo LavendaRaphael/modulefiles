@@ -23,6 +23,7 @@ set-function    cdl                 "cd \${1};ll -a"
 
 set-alias       rmi                 "rm -Iv"
 set-alias       cpi                 "cp -i"
+set-alias       sq                  "squeue -o \"%.18i %.9P %.20j %.12u %.12T %.12M %.16l %.6D %R\""
 
 prepend-path    CPATH               ${prefix}/.local/include
 prepend-path    PATH                ${prefix}/.local/bin

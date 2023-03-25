@@ -14,6 +14,5 @@ set     dir             202203_MDCarbonicAcid
 
 setenv  dir_mdca_code   ${homedir}/codes/research/${dir}
 setenv  dir_mdca_work   ${homedir}/research/${dir}
-setenv  dir_mdca_shtu   ${homedir}/research_shtu/${dir}
 setenv  dir_mdca_d      ${homedir}/research_d/${dir}
 setenv  dir_mdca_ms     ${homedir}/research/${dir}/structure/H2CO3_Files/Documents
