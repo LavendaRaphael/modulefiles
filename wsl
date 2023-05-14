@@ -1,0 +1,20 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+## modulefiles/modules.  Generated from modules.in by configure.
+##
+proc ModulesHelp { } {
+                global prefix
+
+                puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir             $::env(homedir)
+
+setenv  XDG_RUNTIME_DIR     ${homedir}/xdgruntime/
+setenv  RUNLEVEL            3
+
