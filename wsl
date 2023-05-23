@@ -17,4 +17,7 @@ set     homedir             $::env(homedir)
 
 setenv  XDG_RUNTIME_DIR     ${homedir}/xdgruntime/
 setenv  RUNLEVEL            3
+# to resolve "libGL error: failed to load driver: swrast"
+# https://github.com/conda-forge/ctng-compilers-feedstock/issues/95
+setenv  LD_PRELOAD          /usr/lib/x86_64-linux-gnu/libstdc++.so.6
 
