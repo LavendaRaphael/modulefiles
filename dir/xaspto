@@ -1,0 +1,17 @@
+#%Module########################################################################
+##
+## null modulefile
+##
+proc ModulesHelp { } {
+    puts stderr ""
+}
+
+module-whatis   ""
+
+# for Tcl script use only
+set     homedir         $::env(homedir)
+set     dir             202103_XasPtO
+
+setenv  dir_xaspto_code   ${homedir}/codes/research/${dir}
+setenv  dir_xaspto_work   ${homedir}/research/${dir}
+setenv  dir_xaspto_d      ${homedir}/research_d/${dir}
